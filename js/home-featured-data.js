@@ -1,6 +1,6 @@
 // ============================================================
 //  HOME FEATURED PUBLICATIONS DATA
-//  Slider under "Featured Publications" on the home page.
+//  Cards (3 side-by-side) under "Featured Publications" on the home page.
 //  To add a paper: copy one entry block and fill in the fields.
 //  Fields:
 //    title   – paper title (string)
