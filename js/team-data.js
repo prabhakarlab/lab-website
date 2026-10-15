@@ -33,7 +33,7 @@
 /* PI */
 const piData = {
   name: "Shyam Prabhakar",
-  title: "Associate Director, Spatial and Single Cell Systems<br>Senior Group Leader, Laboratory of Systems Biology and Data Analytics",
+  title: "Senior Group Leader, Laboratory of Systems Biology and Data Analytics",
   photo: "images/team/shyam_prabhakar.jpg",
   blurb: `Shyam Prabhakar obtained a B.Tech in Electronics Engineering from IIT Madras and a PhD in Applied Physics from Stanford University. He received the 2001 American Physical Society PhD thesis award for Beam Physics. Following postdoctoral fellowships in Mathematics at Stanford and Genomics at the Lawrence Berkeley National Laboratory, he joined the Genome Institute of Singapore (GIS). He heads the Singapore Single Cell Network and the GIS Spatial and Single Cell Genomics Platform (S2GP). He co-leads: the Genetic Diversity Network within the international <a href="https://www.humancellatlas.org/" target="_blank" rel="noopener noreferrer">Human Cell Atlas</a> (HCA), HCA Asia, the Asian Epigenome Network, and A*STAR's AI and Analytics (AI3) Horizontal Programme.`, email: "prabhakars@a-star.edu.sg",
   twitter: "https://twitter.com/ShyamPrabhakar",
