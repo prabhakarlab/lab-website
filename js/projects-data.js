@@ -31,7 +31,7 @@ const projectsData = [
     },
     {
         title: "AI Models: Building Virtual Cells and Tissues",
-        description: "Integrating multi-omics data to computationally model human cell behaviour.",
+        description: "AI for integrating spatial and single-cell data to predict perturbation response",
         thumbnail: "../images/projects-and-resources/virtual_cell.jpg",
         page: "ai-models.html"
     }
