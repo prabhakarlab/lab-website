@@ -26,7 +26,7 @@ const projectsData = [
     {
         title: "PRADICT",
         description: "Understanding somatic mutations in blood stem cells and their role in disease.",
-        thumbnail: "../images/projects-and-resources/pradict.jpg",
+        thumbnail: "../images/projects-and-resources/pradict_rbc.png",
         page: "pradict.html"
     },
     {

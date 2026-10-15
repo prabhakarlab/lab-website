@@ -637,6 +637,16 @@ body {
     transform: scale(1.03);
 }
 
+/* PRADICT RBC image carries text — show it whole instead of cropping (ponytail:
+   attribute-selector hack; swap for a data-driven class if more images need contain) */
+.project-thumb[src$="pradict_rbc.png"] {
+    object-fit: contain;
+}
+
+.project-card:hover .project-thumb[src$="pradict_rbc.png"] {
+    transform: none;
+}
+
 .project-thumb-placeholder {
     width: 100%;
     height: 100%;
