@@ -9,8 +9,8 @@
 //                            shows it on scroll up
 //    GALLERY HIGHLIGHTS    – home page slider (galleryImages from
 //                            home-gallery-data.js)
-//    FEATURED PUBLICATIONS – home page slider (featuredPublications
-//                            from home-featured-data.js)
+//    FEATURED PUBLICATIONS – home page publication cards, 3 side-by-side
+//                            (featuredPublications from home-featured-data.js)
 //    TALKS & SEMINARS      – builds the talk cards (talksData from
 //                            talks-data.js); YouTube videos load only
 //                            when the thumbnail is clicked
@@ -73,47 +73,67 @@ if (leftBtn && rightBtn) {
 }
 
 /* ========= FEATURED PUBLICATIONS ========= */
-const featuredTitleEl = document.querySelector(".featured-title");
-const featuredMetaEl = document.querySelector(".featured-meta");
-const featuredBodyEl = document.querySelector(".featured-body");
+const featuredTrack = document.querySelector(".featured-track");
 const leftFeaturedBtn = document.querySelector(".featured-section .arrow--left");
 const rightFeaturedBtn = document.querySelector(".featured-section .arrow--right");
-if (leftFeaturedBtn && rightFeaturedBtn) {
-    let featuredIndex = 0;
 
-    function updateFeatured(index) {
-        if (!featuredPublications?.length) return;
-        const item = featuredPublications[index];
-        if (!item) return;
+if (featuredTrack && leftFeaturedBtn && rightFeaturedBtn &&
+    typeof featuredPublications !== "undefined" && featuredPublications.length) {
+    const FEATURED_PAGE_SIZE = 3;
+    let featuredPage = 0;
 
-        featuredTitleEl.textContent = item.title;
+    function buildFeaturedCard(item) {
+        const frame = document.createElement("div");
+        frame.className = "featured-frame";
+
+        const title = document.createElement("a");
+        title.className = "featured-title";
+        title.textContent = item.title || "";
+        title.target = "_blank";
+        title.rel = "noopener noreferrer";
         if (item.link) {
-            featuredTitleEl.href = item.link;
-            featuredTitleEl.style.pointerEvents = '';
+            title.href = item.link;
         } else {
-            featuredTitleEl.removeAttribute('href');
-            featuredTitleEl.style.pointerEvents = 'none';
+            title.style.pointerEvents = "none";
         }
 
-        const metaParts = [];
-        if (item.journal) metaParts.push(item.journal);
-        if (item.year) metaParts.push(item.year);
+        const meta = document.createElement("div");
+        meta.className = "featured-meta";
+        meta.textContent = [item.journal, item.year].filter(Boolean).join(" · ");
 
-        featuredMetaEl.textContent = metaParts.join(" · ");
-        featuredBodyEl.textContent = item.text || "";
+        const body = document.createElement("div");
+        body.className = "featured-body";
+        body.textContent = item.text || "";
+
+        frame.append(title, meta, body);
+        return frame;
     }
 
-    leftFeaturedBtn.addEventListener("click", () => {
-        featuredIndex = (featuredIndex - 1 + featuredPublications.length) % featuredPublications.length;
-        updateFeatured(featuredIndex);
-    });
+    function renderFeatured() {
+        featuredTrack.replaceChildren();
+        const start = featuredPage * FEATURED_PAGE_SIZE;
+        featuredPublications.slice(start, start + FEATURED_PAGE_SIZE).forEach(item => {
+            featuredTrack.appendChild(buildFeaturedCard(item));
+        });
+    }
 
-    rightFeaturedBtn.addEventListener("click", () => {
-        featuredIndex = (featuredIndex + 1) % featuredPublications.length;
-        updateFeatured(featuredIndex);
-    });
+    const featuredPageCount = Math.ceil(featuredPublications.length / FEATURED_PAGE_SIZE);
+    if (featuredPageCount > 1) {
+        leftFeaturedBtn.addEventListener("click", () => {
+            featuredPage = (featuredPage - 1 + featuredPageCount) % featuredPageCount;
+            renderFeatured();
+        });
 
-    updateFeatured(featuredIndex);
+        rightFeaturedBtn.addEventListener("click", () => {
+            featuredPage = (featuredPage + 1) % featuredPageCount;
+            renderFeatured();
+        });
+    } else {
+        leftFeaturedBtn.style.display = "none";
+        rightFeaturedBtn.style.display = "none";
+    }
+
+    renderFeatured();
 }
 
 /* ========= TALKS & SEMINARS ========= */

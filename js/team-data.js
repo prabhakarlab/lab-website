@@ -87,6 +87,11 @@ const teamMembers = [
     photo: "images/team/giovani_wijaya.jpg",
   },
   {
+    name: "Huiwen Zhan",
+    title: "",
+    photo: "images/team/huiwen_zhan.jpg",
+  },
+  {
     name: "Jiamin Toh",
     title: "Research Officer",
     photo: "images/team/jiamin_toh.jpg",

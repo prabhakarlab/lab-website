@@ -26,12 +26,12 @@ const projectsData = [
     {
         title: "PRADICT",
         description: "Understanding somatic mutations in blood stem cells and their role in disease.",
-        thumbnail: "../images/projects-and-resources/pradict.jpg",
+        thumbnail: "../images/projects-and-resources/pradict_rbc.png",
         page: "pradict.html"
     },
     {
         title: "AI Models: Building Virtual Cells and Tissues",
-        description: "Integrating multi-omics data to computationally model human cell behaviour.",
+        description: "AI for integrating spatial and single-cell data to predict perturbation response",
         thumbnail: "../images/projects-and-resources/virtual_cell.jpg",
         page: "ai-models.html"
     }
