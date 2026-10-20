@@ -88,7 +88,7 @@ const teamMembers = [
   },
   {
     name: "Huiwen Zhan",
-    title: "",
+    title: "Postdoctoral Fellow",
     photo: "images/team/huiwen_zhan.jpg",
   },
   {
@@ -100,7 +100,7 @@ const teamMembers = [
     name: "Kuai Yu",
     title: "Graduate Student",
     photo: "images/team/kuai_yu.jpg",
-    github: "https://github.com/yu-kuai",
+    badge: { label: "NUS Page", href: "https://www.comp.nus.edu.sg/~kuaiyu/" },
   },
   {
     name: "Le Min Tan",
